@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+[CanEditMultipleObjects]
+public class EnvPrefab : MonoBehaviour
+{
+    public Vector2 Size;
+
+    public void SetPrefab(GameObject prefab)
+    {
+        if (transform.childCount > 0)
+        {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
+
+        PrefabUtility.InstantiatePrefab(prefab, transform);
+    }
+    public void Rotate()
+    {
+        Transform child = transform.GetChild(0);
+        if (child!=null)
+        {
+            Bounds bounds = child.GetComponent<Renderer>().bounds;
+            Vector3 center = bounds.center;
+            child.RotateAround(center,Vector3.up, 90);
+        }
+    }
+    public void MirrorZ()
+    {
+        Transform child = transform.GetChild(0);
+        if (child!=null)
+        {
+            Bounds bounds = child.GetComponent<Renderer>().bounds;
+            var localScale = child.localScale;
+            localScale=new Vector3(localScale.x,1,-1*localScale.z);
+            child.localScale = localScale;
+            child.Translate(0,0,localScale.z*bounds.size.z);
+        }
+    }
+    public void MirrorX()
+    {
+        Transform child = transform.GetChild(0);
+        if (child!=null)
+        {
+            Bounds bounds = child.GetComponent<Renderer>().bounds;
+            var localScale = child.localScale;
+            localScale=new Vector3(-1*localScale.x,1,localScale.z);
+            child.localScale = localScale;
+            child.Translate(localScale.x*bounds.size.x,0,0);
+        }
+    }
+}
