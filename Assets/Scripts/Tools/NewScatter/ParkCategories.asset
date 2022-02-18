@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9904a43a4c184dc69b05125f384278cd, type: 3}
+  m_Name: ParkCategories
+  m_EditorClassIdentifier: Assembly-CSharp::ParkCategories
+  BasicPrefab: {fileID: 195558, guid: 7b30b5ba44201104fba4e71a527b6905, type: 3}
+  Edge: {fileID: 7065564286851132033, guid: ba593ef4c3da3cb4eab2e00beb9b6a94, type: 3}
+  innerCorner: {fileID: 7090338875365475732, guid: c1e87bc44786e2148baf5fd2369001a6, type: 3}
+  OuterCorner: {fileID: 8669110652415083478, guid: 3c07150f5c33c664cb2a05ad5acc31b7, type: 3}

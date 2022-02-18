@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6004364754ca4b11a1262039b1c7749b, type: 3}
+  m_Name: PavementCategories
+  m_EditorClassIdentifier: Assembly-CSharp::PavementCategories
+  BasicPrefab: {fileID: 198914, guid: 260ea4bf1ba71314c9c3833b491586bc, type: 3}
+  EdgeStreet: {fileID: 195910, guid: ae7b8255185ace64ca379cb1ca3b24e6, type: 3}
+  InnerCornerStreet: {fileID: 124612, guid: 022ffec03fad20a44bfd7a0026ee101a, type: 3}
+  OuterCornerStreet: {fileID: 107438, guid: 8458e1021e0b4a14b82c8e49978ee608, type: 3}
