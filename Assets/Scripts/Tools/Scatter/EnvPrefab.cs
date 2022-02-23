@@ -31,6 +31,7 @@ public class EnvPrefab : MonoBehaviour
 
     public int X;
     public int Y;
+    public GameObject EPrefab;
 
     public void SetPrefab(GameObject prefab)
     {
@@ -38,11 +39,13 @@ public class EnvPrefab : MonoBehaviour
         {
             return;
         }
+
         if (transform.childCount > 0)
         {
             DestroyImmediate(transform.GetChild(0).gameObject);
         }
 
+        EPrefab = prefab;
         PrefabUtility.InstantiatePrefab(prefab, transform);
     }
 
@@ -67,7 +70,7 @@ public class EnvPrefab : MonoBehaviour
 
     public void Rotate(float deg = 90)
     {
-        Transform child=null;
+        Transform child = null;
         if (transform.childCount > 0)
             child = transform.GetChild(0);
         if (child != null)
@@ -112,7 +115,7 @@ public class EnvPrefab : MonoBehaviour
         _oldtype = Type;
         Type = cat.Type;
     }
-    
+
     public void SetTypeNew()
     {
         SetEdgeNew();
@@ -134,5 +137,15 @@ public class EnvPrefab : MonoBehaviour
     private void SetEdgeNew()
     {
         _category.SetEdges(this);
+    }
+
+    public string GetEnvType()
+    {
+        return GraphManagerPro.GraphManager.GetNodeType(this);
+    }
+
+    public bool IsNearBy(EnvPrefab envPrefab)
+    {
+        return (Math.Abs(envPrefab.X - X) < 2 && Math.Abs(envPrefab.Y - Y) < 2);
     }
 }

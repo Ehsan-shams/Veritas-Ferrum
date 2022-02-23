@@ -35,7 +35,7 @@ public class EnvDataBasePro : ScriptableObject
     public List<StreetCategories> Streets;
     public List<PavementCategories> Pavements;
     public List<ParkCategories> Parks;
-
+    public GeneralCategory GeneralCategory;
 
     public string[] Categoreis(int type)
     {

@@ -13,6 +13,8 @@ public class ScatterPro : EditorWindow
     private int _type;
     private int _category;
 
+    private int nSize;
+
     [MenuItem("Tools/ScatterToolPro")]
     static void Init()
     {
@@ -27,7 +29,7 @@ public class ScatterPro : EditorWindow
 
         if (!graphManager)
         {
-            graphManager = GraphManagerPro.graphManager;
+            graphManager = GraphManagerPro.GraphManager;
         }
 
         if (!EnvDb)
@@ -37,6 +39,7 @@ public class ScatterPro : EditorWindow
 
         _type = EditorGUILayout.Popup("Type", _type, EnvDb.Types);
         _category = EditorGUILayout.Popup("Category", _category, EnvDb.Categoreis(_type));
+        nSize = EditorGUILayout.IntField("neighbors", nSize);
 
         if (GUILayout.Button("Scatter"))
         {
@@ -55,6 +58,32 @@ public class ScatterPro : EditorWindow
 
             graphManager.Scatter(CountX, CountY, _type, _category);
         }
+
+        if (GUILayout.Button("Create PrefabKey"))
+        {
+            List<EnvPrefab> envs = new List<EnvPrefab>();
+
+            foreach (Object o in Selection.objects)
+            {
+                GameObject go = o as GameObject;
+                EnvPrefab e = go.GetComponent(typeof(EnvPrefab)) as EnvPrefab;
+                if (e == null)
+                {
+                    e = go.GetComponentInParent(typeof(EnvPrefab)) as EnvPrefab;
+                }
+
+                if (go != null && e != null && !envs.Contains(e))
+                {
+                    envs.Add(e as EnvPrefab);
+                }
+            }
+            graphManager.CreatePrefabKey(envs[0], nSize);
+        }
+
+        /*
+        if (GUILayout.Button("Create new project"))
+            graphManager.CreatePrefabKey(this.envs[0],int.Parse(Input.inputString));
+            */
 
         if (GUILayout.Button("Change Prefab"))
         {
@@ -105,7 +134,7 @@ public class ScatterPro : EditorWindow
                 e.Rotate();
             }
         }
-        
+
         if (GUILayout.Button("Mirror Z"))
         {
             List<EnvPrefab> envs = new List<EnvPrefab>();

@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607a5fcad18545ed81057e4a0824c632, type: 3}
   m_Name: EnvDataBasePro
   m_EditorClassIdentifier: 
-  BaseEnvironment: {fileID: 373660782596419045, guid: 6ed8fa1f3cd31724482b650df9dfcc11, type: 3}
+  BaseEnvironment: {fileID: 373660782596419045, guid: 6ed8fa1f3cd31724482b650df9dfcc11,
+    type: 3}
   Streets:
   - {fileID: 11400000, guid: 52ea7cc36b8069a44ae140b80f8f6a8d, type: 2}
   Pavements:
   - {fileID: 11400000, guid: 6bb5c3ae7b2c8084dbef3c3aac4ec44b, type: 2}
   Parks:
   - {fileID: 11400000, guid: 163e6da6aed40a942ad850205f36c92c, type: 2}
+  GeneralCategory: {fileID: 11400000, guid: 8736930ea566efa419cc345ea3c2abb1, type: 2}

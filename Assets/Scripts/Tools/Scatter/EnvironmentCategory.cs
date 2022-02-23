@@ -8,6 +8,7 @@ public abstract class EnvironmentCategory:ScriptableObject
     public abstract void SetEdges(EnvPrefab envPrefab);
 }
 
+
 public enum PrefabType
 {
     Pavement=0,Street=1,Park=2
